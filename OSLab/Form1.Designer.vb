@@ -1,4 +1,4 @@
-﻿Imports System.IO
+﻿
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
@@ -35,9 +35,13 @@ Partial Class Form1
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.NumeroDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ValorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EntradaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.marcosLib = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.tamProc = New System.Windows.Forms.TextBox()
@@ -50,9 +54,6 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Empezar = New System.Windows.Forms.Button()
         Me.memPrincipal = New System.Windows.Forms.DataGridView()
-        Me.DirFisicaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ValorDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MemoriaPrincipalBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Bitacora = New System.Windows.Forms.RichTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -72,16 +73,20 @@ Partial Class Form1
         Me.TiempoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TablaPaginaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Disco = New System.Windows.Forms.DataGridView()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.MemoriaPrincipalBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DirFisicaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ValorDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         DataGrid = New System.Windows.Forms.DataGridView()
         GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(DataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EntradaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         CType(Me.memPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MemoriaPrincipalBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TablaPag, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TablaPaginaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Disco, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MemoriaPrincipalBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGrid
@@ -132,6 +137,7 @@ Partial Class Form1
         '
         GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         GroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        GroupBox1.Controls.Add(Me.Label4)
         GroupBox1.Controls.Add(Me.marcosLib)
         GroupBox1.Controls.Add(Me.Label5)
         GroupBox1.Controls.Add(DataGrid)
@@ -153,9 +159,20 @@ Partial Class Form1
         GroupBox1.TabStop = False
         GroupBox1.Text = "Datos"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Label4.Location = New System.Drawing.Point(131, 11)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(165, 17)
+        Me.Label4.TabIndex = 20
+        Me.Label4.Text = "Ingresar los valores en Bits"
+        '
         'marcosLib
         '
-        Me.marcosLib.Location = New System.Drawing.Point(160, 140)
+        Me.marcosLib.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.marcosLib.Location = New System.Drawing.Point(160, 154)
         Me.marcosLib.Name = "marcosLib"
         Me.marcosLib.Size = New System.Drawing.Size(185, 23)
         Me.marcosLib.TabIndex = 19
@@ -164,7 +181,7 @@ Partial Class Form1
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label5.Location = New System.Drawing.Point(60, 143)
+        Me.Label5.Location = New System.Drawing.Point(60, 157)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(86, 15)
         Me.Label5.TabIndex = 18
@@ -172,7 +189,8 @@ Partial Class Form1
         '
         'tamProc
         '
-        Me.tamProc.Location = New System.Drawing.Point(188, 102)
+        Me.tamProc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.tamProc.Location = New System.Drawing.Point(188, 116)
         Me.tamProc.Name = "tamProc"
         Me.tamProc.Size = New System.Drawing.Size(163, 23)
         Me.tamProc.TabIndex = 15
@@ -191,7 +209,7 @@ Partial Class Form1
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label9.Location = New System.Drawing.Point(60, 105)
+        Me.Label9.Location = New System.Drawing.Point(60, 119)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(122, 15)
         Me.Label9.TabIndex = 14
@@ -199,7 +217,8 @@ Partial Class Form1
         '
         'tamOS
         '
-        Me.tamOS.Location = New System.Drawing.Point(158, 62)
+        Me.tamOS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.tamOS.Location = New System.Drawing.Point(158, 76)
         Me.tamOS.Name = "tamOS"
         Me.tamOS.Size = New System.Drawing.Size(153, 23)
         Me.tamOS.TabIndex = 5
@@ -208,7 +227,7 @@ Partial Class Form1
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label2.Location = New System.Drawing.Point(60, 65)
+        Me.Label2.Location = New System.Drawing.Point(60, 79)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(72, 15)
         Me.Label2.TabIndex = 4
@@ -216,6 +235,7 @@ Partial Class Form1
         '
         'Aceptar
         '
+        Me.Aceptar.FlatAppearance.BorderSize = 50
         Me.Aceptar.Location = New System.Drawing.Point(139, 468)
         Me.Aceptar.Name = "Aceptar"
         Me.Aceptar.Size = New System.Drawing.Size(137, 41)
@@ -225,7 +245,8 @@ Partial Class Form1
         '
         'tamMarco
         '
-        Me.tamMarco.Location = New System.Drawing.Point(158, 24)
+        Me.tamMarco.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.tamMarco.Location = New System.Drawing.Point(158, 38)
         Me.tamMarco.Name = "tamMarco"
         Me.tamMarco.Size = New System.Drawing.Size(153, 23)
         Me.tamMarco.TabIndex = 3
@@ -234,7 +255,7 @@ Partial Class Form1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(60, 27)
+        Me.Label1.Location = New System.Drawing.Point(60, 41)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(91, 15)
         Me.Label1.TabIndex = 1
@@ -243,7 +264,7 @@ Partial Class Form1
         'Empezar
         '
         Me.Empezar.Enabled = False
-        Me.Empezar.Location = New System.Drawing.Point(501, 495)
+        Me.Empezar.Location = New System.Drawing.Point(501, 504)
         Me.Empezar.Name = "Empezar"
         Me.Empezar.Size = New System.Drawing.Size(132, 41)
         Me.Empezar.TabIndex = 17
@@ -264,37 +285,28 @@ Partial Class Form1
         Me.memPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.memPrincipal.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DirFisicaDataGridViewTextBoxColumn, Me.ValorDataGridViewTextBoxColumn1})
         Me.memPrincipal.DataSource = Me.MemoriaPrincipalBindingSource
-        Me.memPrincipal.Location = New System.Drawing.Point(956, 51)
-        Me.memPrincipal.Name = "memPrincipal"
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.memPrincipal.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.memPrincipal.DefaultCellStyle = DataGridViewCellStyle4
+        Me.memPrincipal.Location = New System.Drawing.Point(956, 51)
+        Me.memPrincipal.Name = "memPrincipal"
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.memPrincipal.RowHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.memPrincipal.RowHeadersVisible = False
         Me.memPrincipal.RowTemplate.Height = 25
-        Me.memPrincipal.Size = New System.Drawing.Size(183, 308)
+        Me.memPrincipal.Size = New System.Drawing.Size(183, 485)
         Me.memPrincipal.TabIndex = 28
-        '
-        'DirFisicaDataGridViewTextBoxColumn
-        '
-        Me.DirFisicaDataGridViewTextBoxColumn.DataPropertyName = "dirFisica"
-        Me.DirFisicaDataGridViewTextBoxColumn.HeaderText = "Dir.Fisica"
-        Me.DirFisicaDataGridViewTextBoxColumn.Name = "DirFisicaDataGridViewTextBoxColumn"
-        Me.DirFisicaDataGridViewTextBoxColumn.Width = 80
-        '
-        'ValorDataGridViewTextBoxColumn1
-        '
-        Me.ValorDataGridViewTextBoxColumn1.DataPropertyName = "valor"
-        Me.ValorDataGridViewTextBoxColumn1.HeaderText = "Contenido"
-        Me.ValorDataGridViewTextBoxColumn1.Name = "ValorDataGridViewTextBoxColumn1"
-        '
-        'MemoriaPrincipalBindingSource
-        '
-        Me.MemoriaPrincipalBindingSource.DataSource = GetType(OSLab.MemoriaPrincipal)
         '
         'Label6
         '
@@ -387,7 +399,7 @@ Partial Class Form1
         'Pausar
         '
         Me.Pausar.Enabled = False
-        Me.Pausar.Location = New System.Drawing.Point(656, 495)
+        Me.Pausar.Location = New System.Drawing.Point(656, 504)
         Me.Pausar.Name = "Pausar"
         Me.Pausar.Size = New System.Drawing.Size(125, 41)
         Me.Pausar.TabIndex = 29
@@ -397,7 +409,7 @@ Partial Class Form1
         'Detener
         '
         Me.Detener.Enabled = False
-        Me.Detener.Location = New System.Drawing.Point(809, 495)
+        Me.Detener.Location = New System.Drawing.Point(809, 504)
         Me.Detener.Name = "Detener"
         Me.Detener.Size = New System.Drawing.Size(121, 40)
         Me.Detener.TabIndex = 30
@@ -407,19 +419,6 @@ Partial Class Form1
         'TablaPag
         '
         Me.TablaPag.AutoGenerateColumns = False
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.TablaPag.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        Me.TablaPag.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.TablaPag.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PaginaDataGridViewTextBoxColumn, Me.MarcoDataGridViewTextBoxColumn, Me.BitActivoInactivoDataGridViewTextBoxColumn, Me.BitModificadoDataGridViewTextBoxColumn, Me.TiempoDataGridViewTextBoxColumn})
-        Me.TablaPag.DataSource = Me.TablaPaginaBindingSource
-        Me.TablaPag.Location = New System.Drawing.Point(487, 54)
-        Me.TablaPag.Name = "TablaPag"
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
@@ -427,7 +426,28 @@ Partial Class Form1
         DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.TablaPag.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.TablaPag.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        Me.TablaPag.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.TablaPag.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PaginaDataGridViewTextBoxColumn, Me.MarcoDataGridViewTextBoxColumn, Me.BitActivoInactivoDataGridViewTextBoxColumn, Me.BitModificadoDataGridViewTextBoxColumn, Me.TiempoDataGridViewTextBoxColumn})
+        Me.TablaPag.DataSource = Me.TablaPaginaBindingSource
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.TablaPag.DefaultCellStyle = DataGridViewCellStyle7
+        Me.TablaPag.Location = New System.Drawing.Point(487, 54)
+        Me.TablaPag.Name = "TablaPag"
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.TablaPag.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.TablaPag.RowHeadersVisible = False
         Me.TablaPag.RowTemplate.Height = 25
         Me.TablaPag.Size = New System.Drawing.Size(443, 150)
@@ -473,36 +493,71 @@ Partial Class Form1
         'Disco
         '
         Me.Disco.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Disco.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Disco.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.Disco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Disco.ColumnHeadersVisible = False
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.Disco.DefaultCellStyle = DataGridViewCellStyle10
         Me.Disco.Location = New System.Drawing.Point(1171, 51)
         Me.Disco.Name = "Disco"
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Disco.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Disco.RowHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.Disco.RowHeadersVisible = False
         Me.Disco.RowTemplate.Height = 25
-        Me.Disco.Size = New System.Drawing.Size(382, 308)
+        Me.Disco.Size = New System.Drawing.Size(382, 485)
         Me.Disco.TabIndex = 32
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
+        Me.Label13.Location = New System.Drawing.Point(653, 457)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(128, 30)
+        Me.Label13.TabIndex = 33
+        Me.Label13.Text = "Simulación:"
+        '
+        'MemoriaPrincipalBindingSource
+        '
+        Me.MemoriaPrincipalBindingSource.DataSource = GetType(OSLab.MemoriaPrincipal)
+        '
+        'DirFisicaDataGridViewTextBoxColumn
+        '
+        Me.DirFisicaDataGridViewTextBoxColumn.DataPropertyName = "dirFisica"
+        Me.DirFisicaDataGridViewTextBoxColumn.HeaderText = "Dir.Fisica"
+        Me.DirFisicaDataGridViewTextBoxColumn.Name = "DirFisicaDataGridViewTextBoxColumn"
+        '
+        'ValorDataGridViewTextBoxColumn1
+        '
+        Me.ValorDataGridViewTextBoxColumn1.DataPropertyName = "valor"
+        Me.ValorDataGridViewTextBoxColumn1.HeaderText = "Valor"
+        Me.ValorDataGridViewTextBoxColumn1.Name = "ValorDataGridViewTextBoxColumn1"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1565, 643)
+        Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Disco)
         Me.Controls.Add(Me.TablaPag)
         Me.Controls.Add(Me.Detener)
@@ -527,52 +582,15 @@ Partial Class Form1
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         CType(Me.memPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MemoriaPrincipalBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TablaPag, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TablaPaginaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Disco, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MemoriaPrincipalBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
-    Private Sub Aceptar_Click(sender As Object, e As EventArgs) Handles Aceptar.Click
-        If Not tamMarco.Text.Equals("") And Not tamOS.Text.Equals("") And Not tamProc.Text.Equals("") And Not marcosLib.Text.Equals("") Then
-
-            Using ofd As OpenFileDialog = New OpenFileDialog() With {.Filter = "Text file|*.csv"}
-                If ofd.ShowDialog() = DialogResult.OK Then
-                    Bitacora.Clear()
-                    Dim tam1 As String = tamMarco.Text
-                    Dim tam2 As String = tamOS.Text
-                    Dim tam3 As String = tamProc.Text
-                    Dim marcos As String() = marcosLib.Text.Split(",")
-                    Bitacora.AppendText(String.Format("Los tamaños son: " & vbCrLf & "Marco {0}" & vbCrLf & "OS: {1}" & vbCrLf & "Proceso: {2}" & vbCrLf, tam1, tam2, tam3))
-                    Bitacora.AppendText("Los marcos libres son: ")
-                    For i As Integer = 0 To marcos.Length - 1
-                        Bitacora.AppendText(String.Format(" {0} ", marcos(i)))
-                    Next
-                    Bitacora.AppendText(vbCrLf)
-
-                    Dim lines As List(Of String) = File.ReadAllLines(ofd.FileName).ToList()
-                    Dim lista As List(Of Entrada) = New List(Of Entrada)
-                    Dim numero As String() = lines(0).Split(",")
-                    Dim valor As String() = lines(1).Split(",")
-                    For i As Integer = 0 To numero.Length - 1
-                        Bitacora.AppendText(String.Format("La linea {0} Posee número {1} y valor {2} " & vbCrLf, i + 1, numero(i), valor(i)))
-                        lista.Add(New Entrada() With {
-                              .numero = numero(i),
-                              .valor = valor(i)})
-                    Next
-
-                    EntradaBindingSource.DataSource = lista
-                    Empezar.Enabled = True
-                    Pausar.Enabled = True
-                    Detener.Enabled = True
-                End If
-            End Using
-        End If
-
-    End Sub
     Friend WithEvents EntradaBindingSource As BindingSource
     Friend WithEvents Empezar As Button
     Friend WithEvents Label1 As Label
@@ -597,11 +615,8 @@ Partial Class Form1
     Friend WithEvents Label10 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents MemoriaPrincipalBindingSource As BindingSource
     Friend WithEvents Pausar As Button
     Friend WithEvents Detener As Button
-    Friend WithEvents DirFisicaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ValorDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents TablaPag As DataGridView
     Friend WithEvents PaginaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents MarcoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -610,4 +625,9 @@ Partial Class Form1
     Friend WithEvents TiempoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TablaPaginaBindingSource As BindingSource
     Friend WithEvents Disco As DataGridView
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label13 As Label
+    Friend WithEvents DirFisicaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ValorDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents MemoriaPrincipalBindingSource As BindingSource
 End Class
