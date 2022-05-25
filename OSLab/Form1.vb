@@ -19,7 +19,7 @@ Public Class Form1
                     mem = LlenarOS(os, U, marcos, mem)
                     Dim sw As Integer = ComprobarMarcos(mem, marcos)
                     If (sw.Equals(0)) Then
-                        If (U < proc) Then
+                        If (U <= proc) Then
                             LLenarEntrada(lista, ofd)
 
                             Bitacora.AppendText(String.Format("Los tamaños son: " & vbCrLf & "Marco: {0} Bits" & vbCrLf & "OS: {1} Bits" & vbCrLf & "Proceso: {2} Bits" & vbCrLf, U, os, proc))
@@ -33,10 +33,6 @@ Public Class Form1
                             Empezar.Enabled = True
                             Pausar.Enabled = True
                             Detener.Enabled = True
-                            Bitacora.ScrollToCaret()
-                        Else
-                            Bitacora.Clear()
-                            Bitacora.AppendText("El tamaño del proceso es menor al de la pagina")
                             Bitacora.ScrollToCaret()
                         End If
                     End If
@@ -62,6 +58,7 @@ Public Class Form1
     End Function
 
     Public Function LlenarOS(tamOS As Integer, U As Integer, marcos As String(), Mem As List(Of MemoriaPrincipal))
+        MemoriaPrincipalBindingSource.Clear()
         Dim n As Integer = tamOS / U
         Dim lista As List(Of MemoriaPrincipal) = New List(Of MemoriaPrincipal)
         For i = 0 To n
@@ -87,6 +84,12 @@ Public Class Form1
 
     Private Sub Empezar_Click(sender As Object, e As EventArgs) Handles Empezar.Click
         Bitacora.Clear()
+        tamMarco.Enabled = False
+        tamOS.Enabled = False
+        tamProc.Enabled = False
+        marcosLib.Enabled = False
+        Aceptar.Enabled = False
+
         Dim mem As List(Of MemoriaPrincipal) = New List(Of MemoriaPrincipal)
         Dim U, os, proc As Integer
         U = Convert.ToInt64(tamMarco.Text)
@@ -97,40 +100,76 @@ Public Class Form1
         MemoriaPrincipalBindingSource.DataSource = mem
         Bitacora.AppendText(vbCrLf & "Se empieza la simulación " & vbCrLf)
         Bitacora.ScrollToCaret()
-        llenarDisco(proc, U)
-        LlenarTablaPag()
+        Dim paginas(,) As Integer
+        paginas = llenarDisco(proc, U)
+        Bitacora.AppendText(vbCrLf)
+        LlenarTablaPag(marcos, paginas)
 
     End Sub
 
-    Private Sub llenarDisco(proc As Integer, U As Integer)
-        Dim n As Integer = proc / U
-        ' corregir esto cuando vuelva 
-        Dim m As Integer = n
-        Disco.ColumnCount = n
-        Disco.RowCount = m
-        If n >= 1 Then
-            Bitacora.AppendText(String.Format("El proceso posee {0} paginas en disco duro", n * n))
-            Bitacora.ScrollToCaret()
-            Dim pagina = 1
-            For i = 0 To m - 1
-                For j = 0 To n - 1
+    Private Function llenarDisco(proc As Integer, U As Integer)
+        Disco.Columns.Clear()
+        Disco.Rows.Clear()
+        Dim cantpag As Integer = Math.Ceiling(proc / U)
+        Dim m As Integer = U
+        Dim n As Integer = Math.Ceiling(cantpag / m)
+        Dim paginas(n - 1, m - 1) As Integer
+        Dim pagina = 0
+        Disco.ColumnCount = m
+        Disco.RowCount = n
+        For i = 0 To n - 1
+                For j = 0 To m - 1
+                If i * U + j >= cantpag Then
+                    paginas(i, j) = -1
+                Else
                     Disco.Rows(i).Cells(j).Value = pagina
-                    pagina += 1
+                        paginas(i, j) = pagina
+                        pagina += 1
+                    End If
                 Next
             Next
-        End If
-    End Sub
+            Bitacora.AppendText(String.Format("El proceso posee {0} paginas en disco duro" & vbCrLf, cantpag))
+            Bitacora.AppendText(String.Format("De las cuales se pierden {0} Bits" & vbCrLf, cantpag * U - proc))
+        Bitacora.ScrollToCaret()
+        Return paginas
+    End Function
 
     Private Sub Pausar_Click(sender As Object, e As EventArgs) Handles Pausar.Click
 
     End Sub
 
     Private Sub Detener_Click(sender As Object, e As EventArgs) Handles Detener.Click
-
+        tamMarco.Enabled = True
+        tamOS.Enabled = True
+        tamProc.Enabled = True
+        marcosLib.Enabled = True
+        Aceptar.Enabled = True
+        Pausar.Enabled = False
+        Empezar.Enabled = False
     End Sub
 
-    Public Sub LlenarTablaPag()
-        Dim marcos As String() = marcosLib.Text.Split(",")
+    Public Sub LlenarTablaPag(marcos As String(), paginas(,) As Integer)
+        TablaPaginaBindingSource.Clear()
+        Dim tablapags As List(Of TablaPagina) = New List(Of TablaPagina)
+        Bitacora.AppendText(String.Format("Llenando la tabla de paginas ..."))
+        For i = 0 To paginas.GetLength(0) - 1
+            For j = 0 To paginas.GetLength(1) - 1
+                If (Not (paginas(i, j) = -1)) Then
+                    tablapags.Add(New TablaPagina() With {
+                    .BitActivoInactivo = 0,
+                    .BitModificado = 0,
+                    .Tiempo = 0,
+                    .Marco = -1,
+                    .Pagina = paginas(i, j)
+                        })
+                End If
+
+
+            Next
+            Bitacora.AppendText(vbCrLf)
+        Next
+        TablaPaginaBindingSource.DataSource = tablapags
+
     End Sub
 
 
