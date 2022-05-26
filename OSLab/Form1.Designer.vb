@@ -54,9 +54,6 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Empezar = New System.Windows.Forms.Button()
         Me.memPrincipal = New System.Windows.Forms.DataGridView()
-        Me.DirFisicaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ValorDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MemoriaPrincipalBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Bitacora = New System.Windows.Forms.RichTextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -78,16 +75,19 @@ Partial Class Form1
         Me.Disco = New System.Windows.Forms.DataGridView()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.MemoriaPrincipalBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DirFisicaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PagDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         DataGrid = New System.Windows.Forms.DataGridView()
         GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(DataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EntradaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         CType(Me.memPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.MemoriaPrincipalBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TablaPag, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TablaPaginaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Disco, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MemoriaPrincipalBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DataGrid
@@ -284,7 +284,7 @@ Partial Class Form1
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.memPrincipal.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.memPrincipal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.memPrincipal.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DirFisicaDataGridViewTextBoxColumn, Me.ValorDataGridViewTextBoxColumn1})
+        Me.memPrincipal.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DirFisicaDataGridViewTextBoxColumn, Me.PagDataGridViewTextBoxColumn})
         Me.memPrincipal.DataSource = Me.MemoriaPrincipalBindingSource
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
@@ -308,22 +308,6 @@ Partial Class Form1
         Me.memPrincipal.RowTemplate.Height = 25
         Me.memPrincipal.Size = New System.Drawing.Size(183, 485)
         Me.memPrincipal.TabIndex = 28
-        '
-        'DirFisicaDataGridViewTextBoxColumn
-        '
-        Me.DirFisicaDataGridViewTextBoxColumn.DataPropertyName = "dirFisica"
-        Me.DirFisicaDataGridViewTextBoxColumn.HeaderText = "Dir.Fisica"
-        Me.DirFisicaDataGridViewTextBoxColumn.Name = "DirFisicaDataGridViewTextBoxColumn"
-        '
-        'ValorDataGridViewTextBoxColumn1
-        '
-        Me.ValorDataGridViewTextBoxColumn1.DataPropertyName = "valor"
-        Me.ValorDataGridViewTextBoxColumn1.HeaderText = "Valor"
-        Me.ValorDataGridViewTextBoxColumn1.Name = "ValorDataGridViewTextBoxColumn1"
-        '
-        'MemoriaPrincipalBindingSource
-        '
-        Me.MemoriaPrincipalBindingSource.DataSource = GetType(OSLab.MemoriaPrincipal)
         '
         'Label6
         '
@@ -553,6 +537,25 @@ Partial Class Form1
         Me.Label13.TabIndex = 33
         Me.Label13.Text = "Simulación:"
         '
+        'Timer1
+        '
+        '
+        'MemoriaPrincipalBindingSource
+        '
+        Me.MemoriaPrincipalBindingSource.DataSource = GetType(OSLab.MemoriaPrincipal)
+        '
+        'DirFisicaDataGridViewTextBoxColumn
+        '
+        Me.DirFisicaDataGridViewTextBoxColumn.DataPropertyName = "dirFisica"
+        Me.DirFisicaDataGridViewTextBoxColumn.HeaderText = "Dir.Fisica"
+        Me.DirFisicaDataGridViewTextBoxColumn.Name = "DirFisicaDataGridViewTextBoxColumn"
+        '
+        'PagDataGridViewTextBoxColumn
+        '
+        Me.PagDataGridViewTextBoxColumn.DataPropertyName = "pag"
+        Me.PagDataGridViewTextBoxColumn.HeaderText = "Pagina"
+        Me.PagDataGridViewTextBoxColumn.Name = "PagDataGridViewTextBoxColumn"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -583,10 +586,10 @@ Partial Class Form1
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
         CType(Me.memPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.MemoriaPrincipalBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TablaPag, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TablaPaginaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Disco, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MemoriaPrincipalBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -628,8 +631,9 @@ Partial Class Form1
     Friend WithEvents Disco As DataGridView
     Friend WithEvents Label4 As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents DirFisicaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Timer1 As Timer
     Friend WithEvents ValorDataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents MemoriaPrincipalBindingSource As BindingSource
-    Friend WithEvents Timer1 As Timer
+    Friend WithEvents DirFisicaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PagDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
