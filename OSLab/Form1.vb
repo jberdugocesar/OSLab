@@ -32,8 +32,9 @@ Public Class Form1
 
                             EntradaBindingSource.DataSource = lista
                             Empezar.Enabled = True
-                            Pausar.Enabled = True
+                            'Pausar.Enabled = True
                             Detener.Enabled = True
+
                             Bitacora.ScrollToCaret()
                         End If
                     End If
@@ -126,18 +127,10 @@ Public Class Form1
             Dim DL As Integer = entrada(i).numero
             Dim p As Integer = DL / U
             Dim d As Integer = DL Mod U
-            Dim m As Integer = BuscarMarcoDisp(entrada(i).numero, paginas, mem, tablapags)
+            Dim m As Integer = BuscarMarcoDisp(entrada(i), paginas, mem, tablapags)
             Dim DF As Integer = m * U + d
 
-            If entrada(i).valor.Equals("E") Then
-                tablapags(m).BitActivoInactivo = 1
-                tablapags(m).BitModificado = 1
-            Else
-                If entrada(i).valor.Equals("L") Then
-                    tablapags(m).BitActivoInactivo = 1
-                    tablapags(m).BitModificado = 0
-                End If
-            End If
+
 
         Next
 
@@ -148,24 +141,24 @@ Public Class Form1
 
     End Sub
 
-    Private Function BuscarMarcoDisp(entrada As Integer, paginas(,) As Integer, mem As List(Of MemoriaPrincipal), tablapags As List(Of TablaPagina)) As Integer
+    Private Function BuscarMarcoDisp(entrada As Entrada, paginas(,) As Integer, mem As List(Of MemoriaPrincipal), tablapags As List(Of TablaPagina)) As Integer
         Dim i As Integer = 0
         Dim encontrado As Integer = 0
         ' Si entrada se encuentra en el rango de las paginas establecidas
-        If (tablapags.Count() > entrada) Then
-            Bitacora.AppendText(String.Format(vbCrLf & "Hallando la entrada: {0} en la tabla de paginas" & vbCrLf, entrada))
-            If (tablapags(entrada).Marco.Equals(-1)) Then
-                Bitacora.AppendText(String.Format("Se produjo un fallo de pagina con la entrada: {0} en pagina: {1}" & vbCrLf, entrada, tablapags(entrada).Pagina))
+        If (tablapags.Count() > entrada.numero) Then
+            Bitacora.AppendText(String.Format(vbCrLf & "Hallando la entrada: {0} en la tabla de paginas" & vbCrLf, entrada.numero))
+            If (tablapags(entrada.numero).Marco.Equals(-1)) Then
+                Bitacora.AppendText(String.Format("Se produjo un fallo de pagina con la entrada: {0} en pagina: {1}" & vbCrLf, entrada.numero, tablapags(entrada.numero).Pagina))
                 ' Buscar en disco la pagina
                 Bitacora.AppendText(String.Format("Buscando Pagina en el disco..." & vbCrLf))
                 For i = 0 To paginas.GetLength(0) - 1
                     For j = 0 To paginas.GetLength(1) - 1
-                        If (tablapags(entrada).Pagina.Equals(paginas(i, j))) Then
+                        If (tablapags(entrada.numero).Pagina.Equals(paginas(i, j))) Then
                             Bitacora.AppendText(String.Format("Se ha encontrado la pagina {0}" & vbCrLf, paginas(i, j)))
                             encontrado = paginas(i, j)
                             i = paginas.GetLength(0) + 1
                             j = paginas.GetLength(1) + 1
-                            tablapags(entrada).Pagina = encontrado
+                            tablapags(entrada.numero).Pagina = encontrado
                         End If
 
                     Next
@@ -177,7 +170,7 @@ Public Class Form1
                         Bitacora.AppendText(String.Format("Marco: {0} Disponible en {1}" & vbCrLf, mem(i).pag, mem(i).dirFisica))
                         Bitacora.AppendText(String.Format("SWAP IN [ X ]" & vbCrLf))
                         mem(i).pag = encontrado
-                        tablapags(entrada).Marco = mem(i).dirFisica
+                        tablapags(entrada.numero).Marco = mem(i).dirFisica
                         i = mem.Count + 1
 
                     End If
@@ -187,9 +180,18 @@ Public Class Form1
                 Bitacora.AppendText(String.Format("-------------------------------------------" & vbCrLf))
                 Bitacora.ScrollToCaret()
 
+                If entrada.valor.Equals("E") Then
+                    tablapags(encontrado).BitActivoInactivo = 1
+                    tablapags(encontrado).BitModificado = 1
+                Else
+                    If entrada.valor.Equals("L") Then
+                        tablapags(encontrado).BitActivoInactivo = 1
+                        tablapags(encontrado).BitModificado = 0
+                    End If
+                End If
 
                 Return encontrado
-                ' Crear un else cuando entrada no existe y me falta un OR
+                ' Crear un else cuando entrada no existe y me falta un OR cuando es swap out 
             End If
         Else
             Bitacora.AppendText(String.Format("La entrada: {0} es muy grande para ser encontrada", entrada))
